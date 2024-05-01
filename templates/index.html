@@ -1,0 +1,212 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Genos:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Genos:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- <script type="text/javascript" src="index.js"></script>  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Khushiyon Ki Sawari</title>
+</head>
+<body>
+   <header>
+    <div class="conatiner-fluid d-sm-block d-md-none">
+      <div class="row">
+        <div class="col-12">
+          <div class="topnav ">
+            <a class="active" href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#contact">Contact</a>
+            <a href="#about">About</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <nav class="navbar navbar-expand-md navbar-light bg-light d-none d-md-block">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav mx-auto">
+            
+            <li class="nav-item" style="display: flex;align-items: center;">
+              <span class="material-symbols-outlined" style="font-size: 1.9rem;">
+                directions_bus
+                </span>
+              
+              <a class="nav-link active" aria-current="page" href="#" style="font-size: medium; color: black;">Buses</a>
+            </li>
+            <li class="nav-item" style="display: flex; align-items: center;">
+              <span class="material-symbols-outlined" style="font-size: 1.9rem;">
+                train
+                </span>
+              <a class="nav-link" href="#" style="font-size: medium; color: black;">Trains</a>
+            </li>
+            <li class="nav-item" style="display: flex; align-items: center;">
+              <span class="material-symbols-outlined" style="font-size: 1.9rem; color: #444;">
+                apartment
+                </span>
+              <a class="nav-link" href="#" style="font-size: medium; color: #444;">Hotels</a>
+            </li>
+            </ul>
+            <ul class="navbar-nav">
+            <li class="nav-item" style="display: flex; align-items: center; margin-left: 4rem;">
+              <span class="material-symbols-outlined" style="font-size: 1.9rem;">
+                confirmation_number
+                </span>
+              <a class="nav-link" href="#" style="font-size: medium; color: #444;">Track Ticket</a>
+            </li>
+            </ul>
+            {% if 'user' in request.session %}
+            <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{request.session.user}}
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">My Account</a></li>
+                <li><a class="dropdown-item" href="#">My Bookings</a></li>
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              </ul>
+            </li>
+            {% else %}
+
+            <li class="nav-item mx-auto" style="display: flex; align-items: center; color: #444;">
+              <span class="material-symbols-outlined" style="color: #444;">
+                person
+                </span>
+              <a class="nav-link" href="/login" style=" font-weight: 400;">Login</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    </header>
+
+
+
+
+  {% block search %}
+  
+  <section>
+    <div class="container-fluid image" style="background-image: url('{% static 'images/background_img.jpg' %}');">
+      <div class="row align-items-center">
+        <div class="col-md-12 col-sm-12">
+          <div class="container">
+            <div class="row">
+          <div class="card mx-auto search" style= "margin-top:10rem; border-radius: 30px;">
+            <div class="card-body">
+              <h5 class="card-title text-center">Search Buses </h5>
+              <div class="row">
+                
+                <div class=" col-md-3 col-4">
+                  <form method="POST" style="width: auto;">
+                    {% csrf_token %}
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" style="background-color: white;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bus-front" viewBox="0 0 16 16">
+                        <path d="M5 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0m8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-6-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2zm1-6c-1.876 0-3.426.109-4.552.226A.5.5 0 0 0 3 4.723v3.554a.5.5 0 0 0 .448.497C4.574 8.891 6.124 9 8 9s3.426-.109 4.552-.226A.5.5 0 0 0 13 8.277V4.723a.5.5 0 0 0-.448-.497A44 44 0 0 0 8 4m0-1c-1.837 0-3.353.107-4.448.22a.5.5 0 1 1-.104-.994A44 44 0 0 1 8 2c1.876 0 3.426.109 4.552.226a.5.5 0 1 1-.104.994A43 43 0 0 0 8 3"/>
+                        <path d="M15 8a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1V2.64c0-1.188-.845-2.232-2.064-2.372A44 44 0 0 0 8 0C5.9 0 4.208.136 3.064.268 1.845.408 1 1.452 1 2.64V4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1v3.5c0 .818.393 1.544 1 2v2a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5V14h6v1.5a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-2c.607-.456 1-1.182 1-2zM8 1c2.056 0 3.71.134 4.822.261.676.078 1.178.66 1.178 1.379v8.86a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 11.5V2.64c0-.72.502-1.301 1.178-1.379A43 43 0 0 1 8 1"/>
+                      </svg>
+                    </span>
+                  </div>
+                    
+                 <input class="form-control form-1 shadow-none" list="tosource" id="source" placeholder="From Station" name="source">
+                 
+                      <datalist id="tosource" name="source">
+                        {% for x in stops %}
+                        <option value="{{x.stop_name}}">{{x.stop_name}}</option>
+                        {% endfor %}
+                      </datalist>
+                </div>
+                </div>
+                <div class="col-md-1 text-center col-4" style="margin-top: 10px;">
+                  <button type="button"  class="btn btn-secondary" fdprocessedid="ra61de" onclick="swapStations()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"/>
+                    </svg>
+                  </button>
+                </div>
+                <div class="col-md-3 col-4">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" style="background-color: white;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                        <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                      </svg>
+                    </span>
+                  </div>
+                    
+                 <input class="form-control form-1 shadow-none" list="todestination" id="destination" placeholder="To Station" name="destination">
+                 
+                      <datalist id="todestination" name="destination">
+                        {% for x in stops %}
+                        <option value="{{x.stop_name}}">{{x.stop_name}}</option>
+                        {% endfor %}
+                      </datalist>
+                </div>
+                </div>
+                <div class="col-md-3 col-6">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                    <span class="input-group-text" style="background-color: white;">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
+                        <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                      </svg>
+                    </span>
+                  </div>
+                    
+                 <input class="form-control form-1 shadow-none" type="date" list="travelDate" id="travelDate" placeholder="Choose Date" name="traveldate">
+                </div>
+                </div>
+                <div class="col-md-2 col-6 ser">
+                  <div class="search_button">
+                    <div class="input-group b1">
+                      <div class="input-group-prepend">
+                        <button type="submit" class="btn btn-danger">Search</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+                </div>
+              
+              </div>
+              </div>
+              
+            </div>
+          </div>
+    </div>
+   </div>
+   </div>
+  
+
+    </section>
+    {% endblock %}
+    <script>
+      function swapStations() {
+        var fromStation = document.getElementById("source").value;
+        var toStation = document.getElementById("destination").value;
+        
+        // Swap the values
+        document.getElementById("source").value = toStation;
+        document.getElementById("destination").value = fromStation;
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+
+.input-group-text{
+    height: 40px;
+    border: none;
+}
+.input-group{
+    box-shadow:  0 0 1px 0 rgba(0,0,0,.1), 0 0 2px 0 rgba(0,0,0,.04), 0 0 1px -2px rgba(0,0,0,.04), 0 2px 5px 0 rgba(0,0,0,.06);
+    box-sizing: border-box;
+    background: #FFFFF7;
+    border-radius: 10px;
+    -webkit-box-shadow:0 0 1px 0 rgba(0,0,0,.1), 0 0 2px 0 rgba(0,0,0,.04), 0 0 1px -2px rgba(0,0,0,.04), 0 2px 5px 0 rgba(0,0,0,.06);
+}
+.b1{
+    box-shadow: none;
+    background: none;
+
+}
+input:focus
+{
+  border-color: white;
+  outline:none;
+}
+.form-control:focus
+{
+  border-color: white;  
+  box-shadow:  white;
+  outline:none;
+  border: 10px;
+}
+input::before
+{
+  border-color: white;
+  outline:none !important;
+}
+.form-control::before
+{
+  border-color: white;  
+  box-shadow:  white;
+  outline:none !important;
+}
+.ser{
+    justify-content: center;
+}
+.b2{
+    justify-content: center;
+    align-items: center;
+}
+@media(max-width:767.98px){
+  .travels{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
+}

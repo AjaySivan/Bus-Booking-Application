@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.body{
+    margin: 0;
+    padding: 0;
+    overflow-x : hidden;
+    background: #f9f9f9;
+    font-family:"Genos",sans-serif;
+    
+} 
+
+.navbar ul li{
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: black;
+    
+    padding: 2px;
+
+    
+}
+.navbar ul li:hover{
+    background-color:#551615;
+}
+.logo_text{
+    
+    padding-left: 65px;
+    font-size: 1em;
+    color: #551615;
+    font-style: italic;
+    font-weight: bold;
+    cursor: pointer;
+}
+#text{
+    font-size: 3.5em;
+    color: #551615;
+    padding-left: 1em;
+    font-family: "Genos",sans-serif;
+    font-weight: bold;
+}
+
+.navbar{
+    box-shadow: 0px 8px 8px -6px rgba(0,0,0,.5);
+    z-index: 1000;
+}
+.imag{
+    width: 100%;
+    filter: drop-shadow(30px 10px 4px black);
+    margin-top: 50px;
+}
+.frm{
+    margin-top:180px;
+    padding-top: 30px;
+    border-radius: 1px;
+    border-style: none;
+    background-color: #bdd4e7;
+    background-image: linear-gradient(315deg, #bdd4e7 0%, #8693ab 74%);
+    height: 400px;
+    width: 400px;
+    border-radius: 20px;
+    
+
+
+}
+.station{
+    width: 300px;
+    filter: drop-shadow(10px 10px 4px #359381);
+}
+.image  {
+ height: 500px;
+} 
+.search {
+    width:100%;
+    height: auto;
+    border-radius: 50px;
+}
+.input-group-text{
+    height: 40px;
+    border: none;
+}
+.input-group{
+    margin-top: 10px;
+}
+@media (max-width: 575.98px) {
+    .ser {
+        display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  @media (max-width:767.98px){
+    .ser{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+  .navbar-brand img{
+    width: 160px;
+    filter: drop-shadow(15px 8px 2px);
+  }
+  .form-1{
+    border: none;
+  }
+.input-group{
+   box-shadow:  0 0 1px 0 rgba(0,0,0,.1), 0 0 2px 0 rgba(0,0,0,.04), 0 0 1px -2px rgba(0,0,0,.04), 0 2px 5px 0 rgba(0,0,0,.06);
+    box-sizing: border-box;
+    background: #FFFFF7;
+    border-radius: 5px;
+    -webkit-box-shadow:0 0 1px 0 rgba(0,0,0,.1), 0 0 2px 0 rgba(0,0,0,.04), 0 0 1px -2px rgba(0,0,0,.04), 0 2px 5px 0 rgba(0,0,0,.06);
+}
+.b1{
+    box-shadow: none;
+}
+.input-group-text svg{
+    border: none;
+    background: white;
+}
